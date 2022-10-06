@@ -7,6 +7,8 @@ import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class BeforeSteps extends BaseSteps {
@@ -14,15 +16,14 @@ public class BeforeSteps extends BaseSteps {
     private static Logger logger = LogManager.getLogger(BeforeSteps.class);
 
     @When("User opens report portal")
-    public void openReportPortal(){
-        logger.info("Open Report Portal");
-        open(EnvConfig.DEMO_REPORT_PORTAL_URL);
+    public void openReportPortal() throws IOException {
+        getLoginPage().openReportPortal();
     }
 
     @And("User logs in")
-    public void userLogsIn() {
+    public void userLogsIn() throws IOException {
         logger.info("Click Login button");
-        getLoginPage().loginButton.click();
+        getLoginPage().login();
     }
 
     @And("User goes to All Dashboards page")

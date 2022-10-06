@@ -5,7 +5,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.AllDashboardsPage;
 
 public class Browser {
 
@@ -32,7 +31,7 @@ public class Browser {
         logger.info("Loading driver");
         System.setProperty("webdriver.chrome.driver","src/drivers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        setWebDriver(driver);
+        driver.manage().window().maximize();
         WebDriverRunner.setWebDriver(driver);
     }
 
