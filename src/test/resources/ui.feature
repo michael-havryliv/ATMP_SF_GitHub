@@ -1,7 +1,7 @@
 Feature: Sample UI Tests for DEMO Report Portal
 
   Background: User on All Dashboards Page
-    Given User opens report portal
+    When User opens report portal
     And User logs in
     And User goes to All Dashboards page
 
@@ -13,6 +13,6 @@ Feature: Sample UI Tests for DEMO Report Portal
     Then User check dashboard name '<dashboardName>' exists
 
     Examples:
-    |dashboardName       |
-    |newRandomDashboard     |
+    |dashboardName           |
+    |someRandomDashboard     |
 
