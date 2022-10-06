@@ -57,6 +57,5 @@ public class LoginPage extends BasePage{
     private void loginEPAMReportPortal(){
         logger.info("Login EPAM Report Portal");
         //NOT IMPLEMENTED YET
-        System.out.println("*************************SUCCESS************************");
     }
 }
