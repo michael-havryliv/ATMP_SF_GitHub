@@ -5,12 +5,15 @@ import java.io.IOException;
 
 public class PropertyReader {
 
+    private static String DEBUG_PROP_PATH = "src/main/resources/debug.properties";
+
     public static String getProperty(String property) throws IOException {
-        String fileName = "src/main/resources/debug.properties";
+
         FileInputStream fis = null;
         java.util.Properties prop = null;
+
         try {
-            fis = new FileInputStream(fileName);
+            fis = new FileInputStream(DEBUG_PROP_PATH);
             prop = new java.util.Properties();
             prop.load(fis);
         } catch(IOException fnfe) {
