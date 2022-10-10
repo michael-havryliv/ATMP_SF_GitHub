@@ -12,7 +12,7 @@ test-job:
   stage: test
   script:
     - echo "Runnig tests..."
-    - mvn clean tests
+    - mvn clean test
 
 sonarqube-check:
   image: maven:3.6.3-jdk-11
