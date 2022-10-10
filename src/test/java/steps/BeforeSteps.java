@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
+import static com.codeborne.selenide.Selenide.Wait;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BeforeSteps extends BaseSteps {
