@@ -2,7 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import config.EnvConfig;
-import io.cucumber.java.eo.Se;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -15,14 +15,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage extends BasePage{
 
-    private static Logger logger = LogManager.getLogger(LoginPage.class);
+    private static final Logger logger = LogManager.getLogger(LoginPage.class);
 
     private static final String LOCAL_LOGIN = "superadmin";
     private static final String LOCAL_PASSWORD = "erebus";
 
-    public SelenideElement loginButton = $(byXpath("//button[@type='submit']"));
-    public SelenideElement loginField = $(byXpath("//input[@placeholder='Login']"));
-    public SelenideElement passwordField = $(byXpath("//input[@placeholder='Password']"));
+    public static final SelenideElement loginButton = $(byXpath("//button[@type='submit']"));
+    public static final SelenideElement loginField = $(byXpath("//input[@placeholder='Login']"));
+    public static final SelenideElement passwordField = $(byXpath("//input[@placeholder='Password']"));
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -32,15 +32,16 @@ public class LoginPage extends BasePage{
         String reportPortal = PropertyReader.getProperty("report_portal");
         switch (reportPortal){
             case "local":
+                logger.log(Level.INFO, () -> "Open LOCAL Report Portal");
                 open(EnvConfig.LOCAL_REPORT_PORTAL_URL);
                 break;
-            case "demo":
-                logger.info("Open DEMO Report Portal");
-                open(EnvConfig.DEMO_REPORT_PORTAL_URL);
-                break;
             case "epam":
-                logger.info("Open EPAM Report Portal");
+                logger.log(Level.INFO, () -> "Open EPAM Report Portal");
                 open(EnvConfig.EPAM_REPORT_PORTAL_URL);
+                break;
+            default:
+                logger.log(Level.INFO, () -> "Open DEMO Report Portal");
+                open(EnvConfig.DEMO_REPORT_PORTAL_URL);
                 break;
         }
     }
@@ -51,27 +52,27 @@ public class LoginPage extends BasePage{
             case "local":
                 loginLocalReportPortal();
                 break;
-            case "demo":
-                loginDemoReportPortal();
-                break;
             case "epam":
                 loginEPAMReportPortal();
+                break;
+            default:
+                loginDemoReportPortal();
                 break;
         }
     }
 
     private void loginDemoReportPortal(){
-        logger.info("Login DEMO Report Portal");
+        logger.log(Level.INFO, () ->"Login DEMO Report Portal");
         loginButton.click();
     }
 
     private void loginEPAMReportPortal(){
-        logger.info("Login EPAM Report Portal");
+        logger.log(Level.INFO, () ->"Login EPAM Report Portal");
         //NOT IMPLEMENTED YET
     }
 
     private void loginLocalReportPortal(){
-        logger.info("Login EPAM Report Portal");
+        logger.log(Level.INFO, () ->"Login EPAM Report Portal");
         loginField.sendKeys(LOCAL_LOGIN);
         passwordField.sendKeys(LOCAL_PASSWORD);
         loginButton.click();

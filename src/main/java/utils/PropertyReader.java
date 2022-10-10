@@ -5,7 +5,9 @@ import java.io.IOException;
 
 public class PropertyReader {
 
-    private static String DEBUG_PROP_PATH = "src/main/resources/debug.properties";
+    private PropertyReader(){}
+
+    private static final String DEBUG_PROP_PATH = "src/main/resources/debug.properties";
 
     public static String getProperty(String property) throws IOException {
 

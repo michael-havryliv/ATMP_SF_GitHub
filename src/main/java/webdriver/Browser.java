@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Browser {
 
-    private static Logger logger = LogManager.getLogger(Browser.class);
+    private static final Logger logger = LogManager.getLogger(Browser.class);
 
     private static WebDriver webDriver;
 
