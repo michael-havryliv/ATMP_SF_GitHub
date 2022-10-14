@@ -5,7 +5,6 @@ import config.EnvConfig;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import utils.PropertyReader;
 
 import java.io.IOException;
@@ -24,11 +23,10 @@ public class LoginPage extends BasePage{
     public static final SelenideElement loginField = $(byXpath("//input[@placeholder='Login']"));
     public static final SelenideElement passwordField = $(byXpath("//input[@placeholder='Password']"));
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
     }
 
-    public void openReportPortal() throws IOException {
+    public static void openReportPortal() throws IOException {
         String reportPortal = PropertyReader.getProperty("report_portal");
         switch (reportPortal){
             case "local":
@@ -39,7 +37,7 @@ public class LoginPage extends BasePage{
                 logger.log(Level.INFO, () -> "Open EPAM Report Portal");
                 open(EnvConfig.EPAM_REPORT_PORTAL_URL);
                 break;
-            default:
+            case "demo":
                 logger.log(Level.INFO, () -> "Open DEMO Report Portal");
                 open(EnvConfig.DEMO_REPORT_PORTAL_URL);
                 break;
@@ -55,7 +53,7 @@ public class LoginPage extends BasePage{
             case "epam":
                 loginEPAMReportPortal();
                 break;
-            default:
+            case "demo":
                 loginDemoReportPortal();
                 break;
         }
