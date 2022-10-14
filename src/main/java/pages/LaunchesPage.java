@@ -1,5 +1,6 @@
 package pages;
 
+import abstractions.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -8,12 +9,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
-public class LaunchesPage extends BasePage{
+public class LaunchesPage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(LaunchesPage.class);
 

@@ -2,9 +2,7 @@ package tests.ui;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.AllDashboardsPage;
@@ -19,7 +17,7 @@ import static pages.LoginPage.openReportPortal;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BaseTest {
 
-    @BeforeAll
+    @BeforeEach
     public void setUp() throws IOException {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
@@ -27,7 +25,7 @@ public class BaseTest {
         getLoginPage().login();
     }
 
-    @AfterAll
+    @AfterEach
     public void quit(){
         Selenide.closeWebDriver();
     }

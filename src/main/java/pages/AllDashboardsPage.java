@@ -1,5 +1,6 @@
 package pages;
 
+import abstractions.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.apache.logging.log4j.Level;
@@ -11,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class AllDashboardsPage extends BasePage{
+public class AllDashboardsPage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(AllDashboardsPage.class);
     public static final SelenideElement dashboardsButton = $(byXpath("//span[span[contains(text(),'Dashboards')]]"));

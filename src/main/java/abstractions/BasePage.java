@@ -1,4 +1,4 @@
-package pages;
+package abstractions;
 
 public abstract class BasePage {
 

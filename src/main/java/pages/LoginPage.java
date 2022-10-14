@@ -1,5 +1,6 @@
 package pages;
 
+import abstractions.BasePage;
 import com.codeborne.selenide.SelenideElement;
 import config.EnvConfig;
 import org.apache.logging.log4j.Level;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(LoginPage.class);
 
