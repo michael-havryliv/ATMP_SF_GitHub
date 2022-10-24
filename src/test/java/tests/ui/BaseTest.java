@@ -3,8 +3,6 @@ package tests.ui;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.AllDashboardsPage;
 import pages.DashboardPage;
 import pages.LaunchesPage;
@@ -15,7 +13,7 @@ import java.io.IOException;
 import static pages.LoginPage.openReportPortal;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class BaseTest {
+public abstract class BaseTest {
 
     @BeforeEach
     public void setUp() throws IOException {

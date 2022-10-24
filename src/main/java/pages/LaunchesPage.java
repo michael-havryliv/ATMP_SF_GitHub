@@ -1,6 +1,5 @@
 package pages;
 
-import abstractions.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -8,12 +7,13 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
-public class LaunchesPage extends BasePage {
+public class LaunchesPage {
 
     private static final Logger logger = LogManager.getLogger(LaunchesPage.class);
 
@@ -27,12 +27,24 @@ public class LaunchesPage extends BasePage {
     }
 
     public void goToLaunchesPage(){
-        logger.log(Level.INFO,() ->"Click Launches button");
+        logger.log(Level.DEBUG,() ->"Click Launches button");
         launchesButton.click();
     }
 
     public void clickOnLaunch(int launch) {
         launches.get(launch).click();
+    }
+
+    public List<Integer> getLaunchValues(List<String> fieldNames, Integer launch) {
+        ArrayList<Integer> values = new ArrayList<>();
+        for (int i = 0; i < fieldNames.size(); i++){
+            if (i < 4){
+                values.add(getLaunchESValue(fieldNames.get(i), launch));
+            }else {
+                values.add(getLaunchDSValue(fieldNames.get(i), launch));
+            }
+        }
+        return values;
     }
 
     public int getLaunchESValue(String fieldName, int launch) {
@@ -41,7 +53,7 @@ public class LaunchesPage extends BasePage {
         fieldValues.get(0).shouldBe(Condition.visible);
         for (int i = 0; i < fieldNames.size(); i++){
             if (fieldNames.get(i).getOwnText().equals(fieldName)){
-                logger.info("ES Field name: " + fieldNames.get(i).getOwnText()+ "ES Value: " + fieldValues.get(i).getText());
+                logger.info("ES Field name: " + fieldNames.get(i).getOwnText()+ " ES Value: " + fieldValues.get(i).getText());
                 return Integer.parseInt(fieldValues.get(i).getText());
             }
         }
@@ -51,9 +63,13 @@ public class LaunchesPage extends BasePage {
 
     public int getLaunchDSValue(String fieldName, int launch){
             SelenideElement resultValue = $(byXpath(getDSValueXpath(fieldName,launch)));
-            Selenide.sleep(1000);
-            if(!resultValue.exists()) return 0;
-            Selenide.sleep(1000);
+            Selenide.sleep(1000);//replace with a waiter
+            if(!resultValue.exists()) {
+                logger.info("DS Field name: " + fieldName + " DS Value: 0");
+                return 0;
+            }
+            Selenide.sleep(1000);//replace with a waiter
+            logger.info("DS Field name: " + fieldName + " DS Value: " + resultValue.getText());
             return Integer.parseInt(resultValue.getText());
     }
 

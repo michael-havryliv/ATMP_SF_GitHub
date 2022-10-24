@@ -1,6 +1,5 @@
 package pages;
 
-import abstractions.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.apache.logging.log4j.Level;
@@ -12,7 +11,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class AllDashboardsPage extends BasePage {
+public class AllDashboardsPage {
 
     private static final Logger logger = LogManager.getLogger(AllDashboardsPage.class);
     public static final SelenideElement dashboardsButton = $(byXpath("//span[span[contains(text(),'Dashboards')]]"));
@@ -29,22 +28,22 @@ public class AllDashboardsPage extends BasePage {
     }
 
     public void checkDashboardNameExists(String dashboardName) {
-        logger.log(Level.INFO,() ->"Check if dashboard name: '" + dashboardName + "' exists");
+        logger.log(Level.DEBUG,() ->"Check if dashboard name: '" + dashboardName + "' exists");
         $(byText(dashboardName)).should(Condition.exist);
     }
 
     public void goToAllDashboardsPage(){
-        logger.log(Level.INFO,() ->"Click AllDashboards button");
+        logger.log(Level.DEBUG,() ->"Click AllDashboards button");
         dashboardsButton.click();
     }
 
     public void clickAddNewDashboardButton() {
-        logger.log(Level.INFO,() ->"Click 'Add new dashboard' button");
+        logger.log(Level.DEBUG,() ->"Click 'Add new dashboard' button");
         addNewDashboardButton.click();
     }
 
     public void clickAddButton() {
-        logger.log(Level.INFO,() ->"Click 'Add' button");
+        logger.log(Level.DEBUG,() ->"Click 'Add' button");
         addButton.click();
     }
 }

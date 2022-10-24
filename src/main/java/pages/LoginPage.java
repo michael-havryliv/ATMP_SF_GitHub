@@ -1,6 +1,5 @@
 package pages;
 
-import abstractions.BasePage;
 import com.codeborne.selenide.SelenideElement;
 import config.EnvConfig;
 import org.apache.logging.log4j.Level;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
-public class LoginPage extends BasePage {
+public class LoginPage {
 
     private static final Logger logger = LogManager.getLogger(LoginPage.class);
 
@@ -61,17 +60,17 @@ public class LoginPage extends BasePage {
     }
 
     private void loginDemoReportPortal(){
-        logger.log(Level.INFO, () ->"Login DEMO Report Portal");
+        logger.log(Level.DEBUG, () ->"Login DEMO Report Portal");
         loginButton.click();
     }
 
     private void loginEPAMReportPortal(){
-        logger.log(Level.INFO, () ->"Login EPAM Report Portal");
+        logger.log(Level.DEBUG, () ->"Login EPAM Report Portal");
         //NOT IMPLEMENTED YET
     }
 
     private void loginLocalReportPortal(){
-        logger.log(Level.INFO, () ->"Login EPAM Report Portal");
+        logger.log(Level.DEBUG, () ->"Login EPAM Report Portal");
         loginField.sendKeys(LOCAL_LOGIN);
         passwordField.sendKeys(LOCAL_PASSWORD);
         loginButton.click();

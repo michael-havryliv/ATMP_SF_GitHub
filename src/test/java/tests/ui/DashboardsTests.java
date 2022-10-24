@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class DashboardsTests extends BaseTest{
 
-    private static final String DASHBOARD_NAME = "report_portal";
+    private static final String DASHBOARD_NAME = "report_portal_dashboard";
 
     @BeforeEach
     public void goToAllDashboardsPage(){
