@@ -26,7 +26,7 @@ public class LoginPage {
     public LoginPage() {
     }
 
-    public static void openReportPortal() throws IOException {
+    public void openReportPortal() throws IOException {
         String reportPortal = PropertyReader.getProperty("report_portal");
         switch (reportPortal){
             case "local":

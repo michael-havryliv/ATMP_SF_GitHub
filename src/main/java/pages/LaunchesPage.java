@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -17,7 +16,7 @@ public class LaunchesPage {
 
     private static final Logger logger = LogManager.getLogger(LaunchesPage.class);
 
-    public static final SelenideElement launchesButton = $(byXpath("//span[span[contains(text(),'Launches')]]"));
+    private static final SelenideElement launchesButton = $(byXpath("//span[span[contains(text(),'Launches')]]"));
     private static final List<SelenideElement> launches = $$(byXpath("//a[contains(@href,'#default')]/div/span"));
     private static String ES_FIELD_NAME_XPATH = "//div[contains(@class,'grid-row-wrap')][x]//div[contains(@class,'launch')]/div/a/parent::div/span";
     private static String ES_VALUE_XPATH = "//div[contains(@class,'grid-row-wrap')][x]//div[contains(@class,'launch')]/div/a";
@@ -50,6 +49,7 @@ public class LaunchesPage {
     public int getLaunchESValue(String fieldName, int launch) {
         List<SelenideElement> fieldNames = $$(byXpath(getESFieldNamesXpath(launch)));
         List<SelenideElement> fieldValues = $$(byXpath(getESValuesXpath(launch)));
+
         fieldValues.get(0).shouldBe(Condition.visible);
         for (int i = 0; i < fieldNames.size(); i++){
             if (fieldNames.get(i).getOwnText().equals(fieldName)){
@@ -63,12 +63,10 @@ public class LaunchesPage {
 
     public int getLaunchDSValue(String fieldName, int launch){
             SelenideElement resultValue = $(byXpath(getDSValueXpath(fieldName,launch)));
-            Selenide.sleep(1000);//replace with a waiter
             if(!resultValue.exists()) {
                 logger.info("DS Field name: " + fieldName + " DS Value: 0");
                 return 0;
             }
-            Selenide.sleep(1000);//replace with a waiter
             logger.info("DS Field name: " + fieldName + " DS Value: " + resultValue.getText());
             return Integer.parseInt(resultValue.getText());
     }

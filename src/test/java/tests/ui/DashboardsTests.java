@@ -1,6 +1,7 @@
 package tests.ui;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class DashboardsTests extends BaseTest{
@@ -12,6 +13,7 @@ public class DashboardsTests extends BaseTest{
         getAllDashboardsPage().goToAllDashboardsPage();
     }
 
+    @Disabled
     @Test
     public void addNewDashboardTest(){
         getAllDashboardsPage().clickAddNewDashboardButton();

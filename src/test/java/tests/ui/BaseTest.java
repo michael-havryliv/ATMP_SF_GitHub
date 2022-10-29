@@ -10,8 +10,6 @@ import pages.LoginPage;
 
 import java.io.IOException;
 
-import static pages.LoginPage.openReportPortal;
-
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class BaseTest {
 
@@ -19,7 +17,7 @@ public abstract class BaseTest {
     public void setUp() throws IOException {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
-        openReportPortal();
+        getLoginPage().openReportPortal();
         getLoginPage().login();
     }
 

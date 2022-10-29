@@ -2,6 +2,7 @@ package tests.ui;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,6 +20,7 @@ public class LaunchesTests extends BaseTest{
         getLaunchesPage().goToLaunchesPage();
     }
 
+    @Disabled
     @ParameterizedTest
     @ArgumentsSource(LaunchesDataProvider.class)
     public void demoTest(Integer launch, ArrayList<String> fieldNames, ArrayList<Integer> expectedValues){

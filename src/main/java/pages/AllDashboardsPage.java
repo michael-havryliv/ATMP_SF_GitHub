@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class AllDashboardsPage {
 
     private static final Logger logger = LogManager.getLogger(AllDashboardsPage.class);
+
     public static final SelenideElement dashboardsButton = $(byXpath("//span[span[contains(text(),'Dashboards')]]"));
     public static final SelenideElement addNewDashboardButton = $(byText("Add New Dashboard"));
     public static final SelenideElement enterDashboardNameInput = $(By.xpath("//input[@placeholder='Enter dashboard name']"));
