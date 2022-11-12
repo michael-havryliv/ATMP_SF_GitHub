@@ -11,7 +11,7 @@ import pages.LoginPage;
 import java.io.IOException;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public abstract class BaseTest {
+public abstract class BaseUITest {
 
     @BeforeEach
     public void setUp() throws IOException {

@@ -1,4 +1,4 @@
-package defSteps;
+package bdd.defSteps;
 
 import pages.AllDashboardsPage;
 import pages.DashboardPage;

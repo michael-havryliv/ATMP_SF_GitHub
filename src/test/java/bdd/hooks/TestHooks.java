@@ -1,4 +1,4 @@
-package hooks;
+package bdd.hooks;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

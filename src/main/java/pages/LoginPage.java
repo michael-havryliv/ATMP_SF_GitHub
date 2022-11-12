@@ -28,34 +28,28 @@ public class LoginPage {
 
     public void openReportPortal() throws IOException {
         String reportPortal = PropertyReader.getProperty("report_portal");
-        switch (reportPortal){
-            case "local":
+        switch (reportPortal) {
+            case "local" -> {
                 logger.log(Level.INFO, () -> "Open LOCAL Report Portal");
-                open(EnvConfig.LOCAL_REPORT_PORTAL_URL);
-                break;
-            case "epam":
+                open(EnvConfig.UI_LOCAL_REPORT_PORTAL_URL);
+            }
+            case "epam" -> {
                 logger.log(Level.INFO, () -> "Open EPAM Report Portal");
-                open(EnvConfig.EPAM_REPORT_PORTAL_URL);
-                break;
-            case "demo":
+                open(EnvConfig.UI_EPAM_REPORT_PORTAL_URL);
+            }
+            case "demo" -> {
                 logger.log(Level.INFO, () -> "Open DEMO Report Portal");
-                open(EnvConfig.DEMO_REPORT_PORTAL_URL);
-                break;
+                open(EnvConfig.UI_DEMO_REPORT_PORTAL_URL);
+            }
         }
     }
 
     public void login() throws IOException {
         String reportPortal = PropertyReader.getProperty("report_portal");
-        switch (reportPortal){
-            case "local":
-                loginLocalReportPortal();
-                break;
-            case "epam":
-                loginEPAMReportPortal();
-                break;
-            case "demo":
-                loginDemoReportPortal();
-                break;
+        switch (reportPortal) {
+            case "local" -> loginLocalReportPortal();
+            case "epam" -> loginEPAMReportPortal();
+            case "demo" -> loginDemoReportPortal();
         }
     }
 

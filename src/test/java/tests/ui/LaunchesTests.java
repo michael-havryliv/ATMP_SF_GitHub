@@ -13,7 +13,7 @@ import providers.LaunchesDataProvider;
 import java.util.ArrayList;
 
 @Execution(ExecutionMode.CONCURRENT)
-public class LaunchesTests extends BaseTest{
+public class LaunchesTests extends BaseUITest {
 
     @BeforeEach
     public void goToLaunchesPage(){
