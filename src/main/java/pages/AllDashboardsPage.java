@@ -15,6 +15,7 @@ public class AllDashboardsPage {
 
     private static final Logger logger = LogManager.getLogger(AllDashboardsPage.class);
 
+    public static final String dashboardTemplate = "//div[contains(@class,'grid')]/a[contains(text(), '{DASHBOARD_NAME}')]";
     public static final SelenideElement dashboardsButton = $(byXpath("//span[span[contains(text(),'Dashboards')]]"));
     public static final SelenideElement addNewDashboardButton = $(byText("Add New Dashboard"));
     public static final SelenideElement enterDashboardNameInput = $(By.xpath("//input[@placeholder='Enter dashboard name']"));
@@ -46,5 +47,11 @@ public class AllDashboardsPage {
     public void clickAddButton() {
         logger.log(Level.DEBUG,() ->"Click 'Add' button");
         addButton.click();
+    }
+
+    public void goToDashboard(String dashboardName) {
+        SelenideElement dashBoardXpath = $(byXpath(dashboardTemplate.replace("{DASHBOARD_NAME}", dashboardName)));
+        logger.log(Level.DEBUG,() -> "Click " + dashBoardXpath + " button");
+        dashBoardXpath.click();
     }
 }
