@@ -17,9 +17,15 @@ public class EnvConfig {
     public static String getBaseAPIURL(){
         String baseURI = "";
         switch (PropertyReader.getProperty("report_portal")) {
-            case "local"-> baseURI = API_LOCAL_RP_BASE_URL;
-            case "epam" -> baseURI = "Not implemented yet";
-            case "demo" -> baseURI = API_DEMO_RP_BASE_URL;
+            case "local" :
+                baseURI = API_LOCAL_RP_BASE_URL;
+                break;
+            case "epam" :
+                baseURI = "Not implemented yet";
+                break;
+            case "demo" :
+                baseURI = API_DEMO_RP_BASE_URL;
+                break;
         }
         return baseURI;
     }

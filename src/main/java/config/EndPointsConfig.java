@@ -37,8 +37,12 @@ public class EndPointsConfig {
     private static String getEndPointWithProjectName(String templateEP){
         String endPoint = "";
         switch (PropertyReader.getProperty("report_portal")){
-            case "demo" -> endPoint = templateEP.replace("{projectName}", "DEFAULT_PERSONAL");
-            case "local" -> endPoint = templateEP.replace("{projectName}","SUPERADMIN_PERSONAL");
+            case "demo" :
+                endPoint = templateEP.replace("{projectName}", "DEFAULT_PERSONAL");
+                break;
+            case "local":
+                endPoint = templateEP.replace("{projectName}","SUPERADMIN_PERSONAL");
+                break;
         }
         return endPoint;
     }

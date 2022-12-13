@@ -29,17 +29,20 @@ public class LoginPage {
     public void openReportPortal() throws IOException {
         String reportPortal = PropertyReader.getProperty("report_portal");
         switch (reportPortal) {
-            case "local" -> {
+            case "local" : {
                 logger.log(Level.INFO, () -> "Open LOCAL Report Portal");
                 open(EnvConfig.UI_LOCAL_REPORT_PORTAL_URL);
+                break;
             }
-            case "epam" -> {
+            case "epam" : {
                 logger.log(Level.INFO, () -> "Open EPAM Report Portal");
                 open(EnvConfig.UI_EPAM_REPORT_PORTAL_URL);
+                break;
             }
-            case "demo" -> {
+            case "demo" : {
                 logger.log(Level.INFO, () -> "Open DEMO Report Portal");
                 open(EnvConfig.UI_DEMO_REPORT_PORTAL_URL);
+                break;
             }
         }
     }
@@ -47,9 +50,15 @@ public class LoginPage {
     public void login() throws IOException {
         String reportPortal = PropertyReader.getProperty("report_portal");
         switch (reportPortal) {
-            case "local" -> loginLocalReportPortal();
-            case "epam" -> loginEPAMReportPortal();
-            case "demo" -> loginDemoReportPortal();
+            case "local" :
+                loginLocalReportPortal();
+                break;
+            case "epam" :
+                loginEPAMReportPortal();
+                break;
+            case "demo" :
+                loginDemoReportPortal();
+                break;
         }
     }
 

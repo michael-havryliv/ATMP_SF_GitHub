@@ -10,9 +10,9 @@
 
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
-        <java.version>15</java.version>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <sonar.qualitygate.wait>true</sonar.qualitygate.wait>
         <junit.jupiter.version>5.9.0</junit.jupiter.version>
         <junit.platform.version>1.9.0</junit.platform.version>
@@ -148,8 +148,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>15</source> <!-- depending on your project -->
-                    <target>15</target> <!-- depending on your project -->
+                    <source>11</source> <!-- depending on your project -->
+                    <target>11</target> <!-- depending on your project -->
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
